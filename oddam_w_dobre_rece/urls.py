@@ -1,0 +1,29 @@
+"""oddam_w_dobre_rece URL Configuration
+
+The `urlpatterns` list routes URLs to views. For more information please see:
+    https://docs.djangoproject.com/en/3.2/topics/http/urls/
+Examples:
+Function views
+    1. Add an import:  from my_app import views
+    2. Add a URL to urlpatterns:  path('', views.home, name='home')
+Class-based views
+    1. Add an import:  from other_app.views import Home
+    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
+Including another URLconf
+    1. Import the include() function: from django.urls import include, path
+    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+"""
+from charity_app import views
+from django.contrib import admin
+from django.urls import path
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path("", views.LandingPage.as_view(), name='LandingPage'),
+    path("addDonnation/", views.AddDonation.as_view(), name='AddDonation'),
+    path("accounts/login/", views.Login.as_view(), name='Login'),
+    path("register/", views.Register.as_view(), name='Register'),
+    path("logout/", views.LogOut.as_view(), name='Logout'),
+    path("confirmation/", views.ConfirmView.as_view(), name='Confirm'),
+
+]
